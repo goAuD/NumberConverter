@@ -12,7 +12,6 @@ class binaryToInteger {
         while (binNum != 0) {
             rest = binNum % 2;
             binNum = binNum / 10;
-
             ans += hoch * rest;
             hoch *= 2;
         }

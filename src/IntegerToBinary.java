@@ -12,7 +12,6 @@ class integerToBinary {
         while (dezNum > 0) {
             rest = dezNum % 2; // 1 / 0 / 1
             dezNum = dezNum / 2; // 2 / 1 / 0
-
             ans += hoch * rest; // 1 / 0 / 100
             hoch *= 10; // 10 / 100 / 1000
         }
