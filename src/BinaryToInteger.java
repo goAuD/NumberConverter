@@ -11,15 +11,15 @@ class binaryToInteger {
         int hoch = 1;
 
         System.out.print("Enter a binary number: ");
-        binNum = a.nextInt();  // 5 / 2 / 1
+        binNum = a.nextInt();
 
         while (binNum != 0) {
-            rest = binNum % 2; // 1 / 0 / 1
-            binNum = binNum / 10; // 2 / 1 / 0
+            rest = binNum % 2;
+            binNum = binNum / 10;
 
-            ans += hoch * rest; // 1 / 0 / 100
-            hoch *= 2; // 10 / 100 / 1000
+            ans += hoch * rest;
+            hoch *= 2;
         }
-        System.out.println(ans); // 1 + 0 + 100 = 101
+        System.out.println(ans);
     }
 }
