@@ -3,14 +3,14 @@ import java.util.Scanner;
 class binaryToInteger {
     public static void main(String[] args) {
 
-        Scanner a = new Scanner(System.in);
-
         int binNum;
         int rest;
         int ans = 0;
         int hoch = 1;
 
+        Scanner a = new Scanner(System.in);
         System.out.print("Enter a binary number: ");
+
         binNum = a.nextInt();
 
         while (binNum != 0) {
