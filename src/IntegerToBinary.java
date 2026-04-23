@@ -16,5 +16,6 @@ class integerToBinary {
             hoch *= 10; // 10 / 100 / 1000
         }
         System.out.println(ans); // 1 + 0 + 100 = 101
+        scanner.close();
     }
 }

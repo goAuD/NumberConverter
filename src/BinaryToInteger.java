@@ -6,9 +6,9 @@ class binaryToInteger {
         int rest;
         int ans = 0;
         int hoch = 1;
-        Scanner a = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a binary number: ");
-        binNum = a.nextInt();
+        binNum = scanner.nextInt();
         while (binNum != 0) {
             rest = binNum % 2;
             binNum = binNum / 10;
@@ -16,5 +16,6 @@ class binaryToInteger {
             hoch *= 2;
         }
         System.out.println(ans);
+        scanner.close();
     }
 }
