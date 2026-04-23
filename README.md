@@ -3,6 +3,8 @@
 [![Java](https://img.shields.io/badge/Java-console%20app-orange?logo=openjdk&logoColor=white)](#tech-stack)
 [![Status](https://img.shields.io/badge/status-practice%20project-lightgrey)](#about)
 
+A small Java console app for converting decimal and binary numbers.
+
 ## About
 
 `BinaryDecimalConverter` is a small Java console application for practicing number conversion logic.
