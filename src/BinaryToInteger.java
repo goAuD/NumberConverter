@@ -1,21 +1,21 @@
 import java.util.Scanner;
 
-class binaryToInteger {
+class BinaryToInteger {
     public static void main(String[] args) {
-        int binNum;
-        int rest;
-        int ans = 0;
+        int binarNum;
+        int restwert;
+        int antwort = 0;
         int hoch = 1;
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a binary number: ");
-        binNum = scanner.nextInt();
-        while (binNum != 0) {
-            rest = binNum % 2;
-            binNum = binNum / 10;
-            ans += hoch * rest;
+        binarNum = scanner.nextInt();
+        while (binarNum != 0) {
+            restwert = binarNum % 2;
+            binarNum = binarNum / 10;
+            antwort += hoch * restwert;
             hoch *= 2;
         }
-        System.out.println(ans);
+        System.out.println(antwort);
         scanner.close();
     }
 }
