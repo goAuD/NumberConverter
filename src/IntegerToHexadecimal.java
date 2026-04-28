@@ -37,21 +37,15 @@ class IntegerToHexadecimal {
             restWert = dezimalZahl % 16; // 15 / 15
             dezimalZahl = dezimalZahl / 16; // 15 / 0
 
-            if (restWert < 10) {
-                hexadezimalZeichen = "" + restWert;
-            } else if (restWert == 10) {
-                hexadezimalZeichen = "A";
-            } else if (restWert == 11) {
-                hexadezimalZeichen = "B";
-            } else if (restWert == 12) {
-                hexadezimalZeichen = "C";
-            } else if (restWert == 13) {
-                hexadezimalZeichen = "D";
-            } else if (restWert == 14) {
-                hexadezimalZeichen = "E";
-            } else {
-                hexadezimalZeichen = "F";
-            }
+            hexadezimalZeichen = switch (restWert) {
+                case 10 -> "A";
+                case 11 -> "B";
+                case 12 -> "C";
+                case 13 -> "D";
+                case 14 -> "E";
+                case 15 -> "F";
+                default -> "" + restWert;
+            };
 
             hexadezimalErgebnis = hexadezimalZeichen + hexadezimalErgebnis; // F / FF
         }
