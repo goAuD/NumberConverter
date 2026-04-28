@@ -15,6 +15,8 @@ It supports:
 - binary to decimal conversion
 - decimal to hexadecimal conversion
 - hexadecimal to decimal conversion
+- hexadecimal to binary conversion
+- binary to hexadecimal conversion
 - basic input validation
 - repeated input prompts until the user enters a valid value
 - large-number binary/decimal conversion in `NumberConverterApp` via `BigInteger`
@@ -36,6 +38,8 @@ The repository license is not finalized yet.
 - `src/BinaryToInteger.java` - standalone binary-to-decimal practice class
 - `src/IntegerToHexadecimal.java` - standalone decimal-to-hexadecimal practice class
 - `src/HexadecimalToInteger.java` - standalone hexadecimal-to-decimal practice class
+- `src/HexadecimalToBinary.java` - standalone hexadecimal-to-binary practice class
+- `src/BinaryToHexadecimal.java` - standalone binary-to-hexadecimal practice class
 
 ## Run Locally
 
@@ -54,6 +58,8 @@ java -cp out IntegerToBinary
 java -cp out BinaryToInteger
 java -cp out IntegerToHexadecimal
 java -cp out HexadecimalToInteger
+java -cp out HexadecimalToBinary
+java -cp out BinaryToHexadecimal
 ```
 
 ### macOS / Linux
@@ -71,6 +77,8 @@ java -cp out IntegerToBinary
 java -cp out BinaryToInteger
 java -cp out IntegerToHexadecimal
 java -cp out HexadecimalToInteger
+java -cp out HexadecimalToBinary
+java -cp out BinaryToHexadecimal
 ```
 
 ## Example
@@ -101,6 +109,20 @@ Hexadecimal to decimal:
 ```text
 Enter a hexadecimal number: FF
 255
+```
+
+Hexadecimal to binary:
+
+```text
+Enter a hexadecimal number: FF
+11111111
+```
+
+Binary to hexadecimal:
+
+```text
+Enter a binary number: 11111111
+FF
 ```
 
 ## Collaboration
