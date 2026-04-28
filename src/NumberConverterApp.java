@@ -17,8 +17,9 @@ public class NumberConverterApp {
                 case "4" -> handleHexadecimalToDecimal(eingabeScanner);
                 case "5" -> handleHexadecimalToBinary(eingabeScanner);
                 case "6" -> handleBinaryToHexadecimal(eingabeScanner);
+                case "7" -> handlePrefixToClients(eingabeScanner);
                 case "0" -> appLaeuft = false;
-                default -> System.out.println("Invalid option. Please choose a number from 0 to 6.");
+                default -> System.out.println("Invalid option. Please choose a number from 0 to 7.");
             }
 
             if (appLaeuft) {
@@ -38,6 +39,7 @@ public class NumberConverterApp {
         System.out.println("4. Hexadecimal to decimal");
         System.out.println("5. Hexadecimal to binary");
         System.out.println("6. Binary to hexadecimal");
+        System.out.println("7. Network prefix to clients");
         System.out.println("0. Exit");
         System.out.print("Choose an option: ");
     }
@@ -74,6 +76,27 @@ public class NumberConverterApp {
         String binaerZahl = readBinaryNumber(eingabeScanner);
         BigInteger dezimalZahl = new BigInteger(binaerZahl, 2);
         System.out.println("Hexadecimal result: " + dezimalZahl.toString(16).toUpperCase());
+    }
+
+    private static void handlePrefixToClients(Scanner eingabeScanner) {
+        int prefixLaenge = readPrefixLength(eingabeScanner);
+        int anzahlHostBits = 32 - prefixLaenge;
+        long anzahlAdressen = 1;
+
+        for (int zaehler = 0; zaehler < anzahlHostBits; zaehler++) {
+            anzahlAdressen *= 2;
+        }
+
+        long anzahlClients = anzahlAdressen - 2;
+
+        if (anzahlClients < 0) {
+            anzahlClients = 0;
+        }
+
+        System.out.println("Prefix: /" + prefixLaenge);
+        System.out.println("Host bits: " + anzahlHostBits);
+        System.out.println("Total addresses: " + anzahlAdressen);
+        System.out.println("Usable clients: " + anzahlClients);
     }
 
     private static BigInteger readDecimalNumber(Scanner eingabeScanner) {
@@ -131,6 +154,30 @@ public class NumberConverterApp {
             }
 
             return eingabe;
+        }
+    }
+
+    private static int readPrefixLength(Scanner eingabeScanner) {
+        while (true) {
+            System.out.print("Enter a network prefix, for example /28 or 28: ");
+            String eingabe = eingabeScanner.nextLine().trim();
+
+            if (eingabe.startsWith("/")) {
+                eingabe = eingabe.substring(1);
+            }
+
+            try {
+                int prefixLaenge = Integer.parseInt(eingabe);
+
+                if (prefixLaenge < 0 || prefixLaenge > 32) {
+                    System.out.println("Invalid prefix. Please enter a number from 0 to 32.");
+                    continue;
+                }
+
+                return prefixLaenge;
+            } catch (NumberFormatException exception) {
+                System.out.println("Invalid prefix. Please enter a number from 0 to 32.");
+            }
         }
     }
 }
