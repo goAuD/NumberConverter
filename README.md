@@ -19,7 +19,7 @@ It supports:
 - binary to hexadecimal conversion
 - basic input validation
 - repeated input prompts until the user enters a valid value
-- large-number binary/decimal conversion in `NumberConverterApp` via `BigInteger`
+- large-number conversion in `NumberConverterApp` via `BigInteger`
 
 This repository is intentionally simple. It is a learning project, not a production application.
 
@@ -33,7 +33,7 @@ The repository license is not finalized yet.
 
 ## Project Structure
 
-- `src/NumberConverterApp.java` - future main app for combining the converter classes
+- `src/NumberConverterApp.java` - main menu app for the available converter directions
 - `src/IntegerToBinary.java` - standalone decimal-to-binary practice class
 - `src/BinaryToInteger.java` - standalone binary-to-decimal practice class
 - `src/IntegerToHexadecimal.java` - standalone decimal-to-hexadecimal practice class
@@ -125,6 +125,20 @@ Enter a binary number: 11111111
 FF
 ```
 
+Main app menu:
+
+```text
+Number Converter
+1. Decimal to binary
+2. Binary to decimal
+3. Decimal to hexadecimal
+4. Hexadecimal to decimal
+5. Hexadecimal to binary
+6. Binary to hexadecimal
+0. Exit
+Choose an option:
+```
+
 ## Collaboration
 
 This repo is open to small, focused improvements. Since this is a practice project, the goal is clarity and clean code rather than adding unnecessary complexity.
@@ -141,7 +155,6 @@ For more detail, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Ideas For Next Steps
 
-- add an exit option and loop the menu until the user quits
 - add unit tests
-- support clearer error handling for edge cases
-- connect all standalone converter classes through `NumberConverterApp`
+- consider sharing conversion logic between the main app and standalone practice classes
+- add octal conversion if another number system is useful for practice
