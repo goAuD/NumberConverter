@@ -17,7 +17,7 @@ public class NumberConverterApp {
                 case "4" -> handleHexadecimalToDecimal(eingabeScanner);
                 case "5" -> handleHexadecimalToBinary(eingabeScanner);
                 case "6" -> handleBinaryToHexadecimal(eingabeScanner);
-                case "7" -> handlePrefixToClients(eingabeScanner);
+                case "7" -> handleCidrPrefixToUsableHosts(eingabeScanner);
                 case "0" -> appLaeuft = false;
                 default -> System.out.println("Invalid option. Please choose a number from 0 to 7.");
             }
@@ -39,7 +39,7 @@ public class NumberConverterApp {
         System.out.println("4. Hexadecimal to decimal");
         System.out.println("5. Hexadecimal to binary");
         System.out.println("6. Binary to hexadecimal");
-        System.out.println("7. Network prefix to clients");
+        System.out.println("7. CIDR prefix to usable hosts");
         System.out.println("0. Exit");
         System.out.print("Choose an option: ");
     }
@@ -78,7 +78,7 @@ public class NumberConverterApp {
         System.out.println("Hexadecimal result: " + dezimalZahl.toString(16).toUpperCase());
     }
 
-    private static void handlePrefixToClients(Scanner eingabeScanner) {
+    private static void handleCidrPrefixToUsableHosts(Scanner eingabeScanner) {
         int prefixLaenge = readPrefixLength(eingabeScanner);
         int anzahlHostBits = 32 - prefixLaenge;
         long anzahlAdressen = 1;
@@ -87,16 +87,16 @@ public class NumberConverterApp {
             anzahlAdressen *= 2;
         }
 
-        long anzahlClients = anzahlAdressen - 2;
+        long anzahlHosts = anzahlAdressen - 2;
 
-        if (anzahlClients < 0) {
-            anzahlClients = 0;
+        if (anzahlHosts < 0) {
+            anzahlHosts = 0;
         }
 
         System.out.println("Prefix: /" + prefixLaenge);
         System.out.println("Host bits: " + anzahlHostBits);
         System.out.println("Total addresses: " + anzahlAdressen);
-        System.out.println("Usable clients: " + anzahlClients);
+        System.out.println("Usable hosts: " + anzahlHosts);
     }
 
     private static BigInteger readDecimalNumber(Scanner eingabeScanner) {
@@ -159,7 +159,7 @@ public class NumberConverterApp {
 
     private static int readPrefixLength(Scanner eingabeScanner) {
         while (true) {
-            System.out.print("Enter a network prefix, for example /28 or 28: ");
+            System.out.print("Enter a CIDR prefix, for example /28 or 28: ");
             String eingabe = eingabeScanner.nextLine().trim();
 
             if (eingabe.startsWith("/")) {

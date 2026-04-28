@@ -1,15 +1,15 @@
 import java.util.Scanner;
 
-class PrefixToClients {
+class CidrPrefixToUsableHosts {
     public static void main(String[] args) {
         int prefixLaenge;
         int anzahlHostBits;
         long anzahlAdressen = 1;
-        long anzahlClients;
+        long anzahlHosts;
         Scanner eingabeScanner = new Scanner(System.in);
 
         while (true) {
-            System.out.print("Enter a network prefix, for example /28 or 28: ");
+            System.out.print("Enter a CIDR prefix, for example /28 or 28: ");
             String eingabe = eingabeScanner.nextLine().trim();
 
             if (eingabe.startsWith("/")) {
@@ -37,16 +37,16 @@ class PrefixToClients {
             anzahlAdressen *= 2; // 2 / 4 / 8 / 16
         }
 
-        anzahlClients = anzahlAdressen - 2;
+        anzahlHosts = anzahlAdressen - 2;
 
-        if (anzahlClients < 0) {
-            anzahlClients = 0;
+        if (anzahlHosts < 0) {
+            anzahlHosts = 0;
         }
 
         System.out.println("Prefix: /" + prefixLaenge);
         System.out.println("Host bits: " + anzahlHostBits);
         System.out.println("Total addresses: " + anzahlAdressen);
-        System.out.println("Usable clients: " + anzahlClients);
+        System.out.println("Usable hosts: " + anzahlHosts);
 
         eingabeScanner.close();
     }

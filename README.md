@@ -7,7 +7,7 @@ A small Java console project for practicing number conversion logic.
 
 ## About
 
-`NumberConverter` is a small Java console project for converting numbers between different number systems and calculating usable clients from IPv4 network prefixes.
+`NumberConverter` is a small Java console project for converting numbers between different number systems and calculating usable hosts from IPv4 CIDR prefixes.
 
 It supports:
 
@@ -17,7 +17,7 @@ It supports:
 - hexadecimal to decimal conversion
 - hexadecimal to binary conversion
 - binary to hexadecimal conversion
-- network prefix to usable clients calculation
+- CIDR prefix to usable hosts calculation
 - basic input validation
 - repeated input prompts until the user enters a valid value
 - large-number conversion in `NumberConverterApp` via `BigInteger`
@@ -34,14 +34,14 @@ The repository license is not finalized yet.
 
 ## Project Structure
 
-- `src/NumberConverterApp.java` - main menu app for the available converter directions and prefix calculator
+- `src/NumberConverterApp.java` - main menu app for the available converter directions and CIDR prefix calculator
 - `src/IntegerToBinary.java` - standalone decimal-to-binary practice class
 - `src/BinaryToInteger.java` - standalone binary-to-decimal practice class
 - `src/IntegerToHexadecimal.java` - standalone decimal-to-hexadecimal practice class
 - `src/HexadecimalToInteger.java` - standalone hexadecimal-to-decimal practice class
 - `src/HexadecimalToBinary.java` - standalone hexadecimal-to-binary practice class
 - `src/BinaryToHexadecimal.java` - standalone binary-to-hexadecimal practice class
-- `src/PrefixToClients.java` - standalone network-prefix-to-clients practice class
+- `src/CidrPrefixToUsableHosts.java` - standalone CIDR-prefix-to-usable-hosts practice class
 
 ## Run Locally
 
@@ -62,7 +62,7 @@ java -cp out IntegerToHexadecimal
 java -cp out HexadecimalToInteger
 java -cp out HexadecimalToBinary
 java -cp out BinaryToHexadecimal
-java -cp out PrefixToClients
+java -cp out CidrPrefixToUsableHosts
 ```
 
 ### macOS / Linux
@@ -82,7 +82,7 @@ java -cp out IntegerToHexadecimal
 java -cp out HexadecimalToInteger
 java -cp out HexadecimalToBinary
 java -cp out BinaryToHexadecimal
-java -cp out PrefixToClients
+java -cp out CidrPrefixToUsableHosts
 ```
 
 ## Example
@@ -129,14 +129,14 @@ Enter a binary number: 11111111
 FF
 ```
 
-Network prefix to clients:
+CIDR prefix to usable hosts:
 
 ```text
-Enter a network prefix, for example /28 or 28: /28
+Enter a CIDR prefix, for example /28 or 28: /28
 Prefix: /28
 Host bits: 4
 Total addresses: 16
-Usable clients: 14
+Usable hosts: 14
 ```
 
 Main app menu:
@@ -149,7 +149,7 @@ Number Converter
 4. Hexadecimal to decimal
 5. Hexadecimal to binary
 6. Binary to hexadecimal
-7. Network prefix to clients
+7. CIDR prefix to usable hosts
 0. Exit
 Choose an option:
 ```
@@ -173,3 +173,4 @@ For more detail, see [CONTRIBUTING.md](CONTRIBUTING.md).
 - add unit tests
 - consider sharing conversion logic between the main app and standalone practice classes
 - add octal conversion if another number system is useful for practice
+- see [ROADMAP.md](ROADMAP.md) for the longer product direction
