@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for contributing to `BinaryDecimalConverter`.
+Thanks for contributing to `NumberConverter`.
 
 This is a small practice project, so contributions should stay simple, readable, and easy to review.
 

@@ -1,10 +1,11 @@
 import java.util.Scanner;
 
-class IntegerToBinary {
+class IntegerToHexadecimal {
     public static void main(String[] args) {
         int dezimalZahl;
         int restWert;
-        String binaerErgebnis = "";
+        String hexadezimalZeichen;
+        String hexadezimalErgebnis = "";
         Scanner eingabeScanner = new Scanner(System.in);
 
         while (true) {
@@ -33,12 +34,29 @@ class IntegerToBinary {
         }
 
         while (dezimalZahl > 0) {
-            restWert = dezimalZahl % 2; // 1 / 0 / 1
-            dezimalZahl = dezimalZahl / 2; // 2 / 1 / 0
-            binaerErgebnis = restWert + binaerErgebnis; // 1 / 01 / 101
+            restWert = dezimalZahl % 16; // 15 / 15
+            dezimalZahl = dezimalZahl / 16; // 15 / 0
+
+            if (restWert < 10) {
+                hexadezimalZeichen = "" + restWert;
+            } else if (restWert == 10) {
+                hexadezimalZeichen = "A";
+            } else if (restWert == 11) {
+                hexadezimalZeichen = "B";
+            } else if (restWert == 12) {
+                hexadezimalZeichen = "C";
+            } else if (restWert == 13) {
+                hexadezimalZeichen = "D";
+            } else if (restWert == 14) {
+                hexadezimalZeichen = "E";
+            } else {
+                hexadezimalZeichen = "F";
+            }
+
+            hexadezimalErgebnis = hexadezimalZeichen + hexadezimalErgebnis; // F / FF
         }
 
-        System.out.println(binaerErgebnis); // 101
+        System.out.println(hexadezimalErgebnis); // FF
         eingabeScanner.close();
     }
 }
