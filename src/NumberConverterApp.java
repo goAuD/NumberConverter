@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class NumberConverterApp {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
-            System.out.println("Binary Decimal Converter");
+            System.out.println("Number Converter");
             System.out.println("1. Decimal to binary");
             System.out.println("2. Binary to decimal");
             System.out.print("Choose an option (1 or 2): ");

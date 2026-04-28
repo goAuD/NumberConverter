@@ -40,21 +40,15 @@ class HexadecimalToInteger {
         while (index >= 0) {
             hexadezimalZeichen = hexadezimalZahl.charAt(index); // F / F
 
-            if (hexadezimalZeichen >= '0' && hexadezimalZeichen <= '9') {
-                restWert = hexadezimalZeichen - '0';
-            } else if (hexadezimalZeichen == 'A') {
-                restWert = 10;
-            } else if (hexadezimalZeichen == 'B') {
-                restWert = 11;
-            } else if (hexadezimalZeichen == 'C') {
-                restWert = 12;
-            } else if (hexadezimalZeichen == 'D') {
-                restWert = 13;
-            } else if (hexadezimalZeichen == 'E') {
-                restWert = 14;
-            } else {
-                restWert = 15;
-            }
+            restWert = switch (hexadezimalZeichen) {
+                case 'A' -> 10;
+                case 'B' -> 11;
+                case 'C' -> 12;
+                case 'D' -> 13;
+                case 'E' -> 14;
+                case 'F' -> 15;
+                default -> hexadezimalZeichen - '0';
+            };
 
             dezimalErgebnis += stellenWert * restWert; // 15 / 255
             stellenWert *= 16; // 16 / 256
